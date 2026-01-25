@@ -30,6 +30,17 @@ int reverseNumber(int n){
     return revN;
 }
 
+bool palindromeNumber(int n){
+    int original = n;
+    int revN = 0;
+    while(n > 0){
+        int ld = n % 10;
+        n = n /10;
+        revN = (revN * 10 )+ld;
+    } 
+    if(original == revN) return true;
+    else return false;
+}
 
 
 
@@ -41,8 +52,11 @@ int main(){
         cin >> n;
         // int resCount = count(n);
         // cout <<  resCount << endl;
-        int resReverseNumber = reverseNumber(n);
-        cout <<  resReverseNumber << endl;
+        // int resReverseNumber = reverseNumber(n);
+        // cout <<  resReverseNumber << endl;
+        bool revPalindromeNumber = palindromeNumber(n);
+        cout << boolalpha << revPalindromeNumber << endl;
+        
         
     }
     
