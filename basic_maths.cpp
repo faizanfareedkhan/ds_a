@@ -42,6 +42,18 @@ bool palindromeNumbers(int n){
     else return false;
 }
 
+bool armStrongNumbers(int n){
+    int original = n;
+    int sumN = 0;
+    while(n > 0){
+        int ld = n % 10;
+        n = n / 10;
+        sumN = sumN + ld*ld*ld ;
+    } 
+    if(original == sumN) return true;
+    else return false;
+}
+
 
 
 int main(){
@@ -54,8 +66,10 @@ int main(){
         // cout <<  resCount << endl;
         // int resReverseNumber = reverseNumber(n);
         // cout <<  resReverseNumber << endl;
-        bool revPalindromeNumbers = palindromeNumbers(n);
-        cout << boolalpha << revPalindromeNumbers << endl;
+        // bool resPalindromeNumbers = palindromeNumbers(n);
+        // cout << boolalpha << resPalindromeNumbers << endl;
+        bool resArmStrongNumbers = armStrongNumbers(n);
+        cout << boolalpha << resArmStrongNumbers << endl;
         
         
     }
