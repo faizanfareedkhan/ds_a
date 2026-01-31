@@ -54,6 +54,37 @@ bool armStrongNumbers(int n){
     else return false;
 }
 
+void printDivisions(int n){
+    // patter 1 for print division of the number 
+
+    // for(int i = 1; i <= n; i++){
+    //     if(n%i==0){
+    //         cout << i;
+    //         cout << endl;
+    //     }
+    // }
+
+    // patter 2 for print division of the number
+
+    vector<int> ls;
+
+    // cout << sqrt(n);
+
+    for(int i = 1; i*i <= n; i++){
+        if(n % i == 0){
+            ls.push_back(i);
+            if((n/i) != i){
+                ls.push_back(n/i);
+            }
+
+        }
+    }
+    sort(ls.begin(), ls.end());
+    for(int i = 0; i < ls.size(); i++){
+        cout << ls[i] << endl;
+    }
+
+}
 
 
 int main(){
@@ -68,9 +99,9 @@ int main(){
         // cout <<  resReverseNumber << endl;
         // bool resPalindromeNumbers = palindromeNumbers(n);
         // cout << boolalpha << resPalindromeNumbers << endl;
-        bool resArmStrongNumbers = armStrongNumbers(n);
-        cout << boolalpha << resArmStrongNumbers << endl;
-        
+        // bool resArmStrongNumbers = armStrongNumbers(n);
+        // cout << boolalpha << resArmStrongNumbers << endl;
+        printDivisions(n);
         
     }
     
