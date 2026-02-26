@@ -98,6 +98,15 @@ void isPrime(int n){
     else cout << "false";
 }
 
+int GCD(int a, int b){
+    while(a > 0 && b > 0){
+        if(a > b) a = a % b;
+        else b = b % a;
+    }
+    if(a == 0) return b;
+    return a;
+}
+
 int main(){
     int t;
     cin >> t;
@@ -113,7 +122,13 @@ int main(){
         // bool resArmStrongNumbers = armStrongNumbers(n);
         // cout << boolalpha << resArmStrongNumbers << endl;
         // printDivisions(n);
-        isPrime(n);
+        // isPrime(n);
+        int p;
+        cin >> p;
+        int resGCD = GCD(n, p); 
+        cout << resGCD << endl;
+        // cout << n << endl;
+        // cout << p << endl;
         
     }
     
