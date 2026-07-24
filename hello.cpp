@@ -1,20 +1,28 @@
 #include <iostream>
 using namespace std;
 
-// int sum(int n){
-//     if (n == 0) return 0;
-//     return n + sum(n - 1);
-// }
+void ReversedArray(int i, int arr[], int n)
+{
+    if (i >= n / 2)
+        return;
 
-int fac(int n){
-    if (n == 0) return 1;
-    return n * fac(n - 1);
+    swap(arr[i], arr[n - i - 1]);
+
+    ReversedArray(i + 1, arr, n);
 }
 
-int main(){
+int main()
+{
     int n;
     cin >> n;
 
-    // cout << sum(n);
-    cout << fac(n);
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    ReversedArray(0, arr, n);
+
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
 }
