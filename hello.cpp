@@ -1,28 +1,22 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void ReversedArray(int i, int arr[], int n)
-{
-    if (i >= n / 2)
-        return;
+bool f(vector<int> arr, int n){
+    if(n <= 1) return true;
 
-    swap(arr[i], arr[n - i - 1]);
-
-    ReversedArray(i + 1, arr, n);
+    return (arr[n - 1] >= arr[n - 2]) && f(arr, n - 1);
 }
 
-int main()
-{
+int main(){
     int n;
     cin >> n;
 
-    int arr[n];
+    vector<int> arr(n);
 
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < arr.size(); i++)
         cin >> arr[i];
 
-    ReversedArray(0, arr, n);
+    cout << f(arr, n);
 
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
 }
